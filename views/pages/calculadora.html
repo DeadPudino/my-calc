@@ -4,42 +4,41 @@
 <head>
     <title>Calculadora</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 
 <body onkeypress="manipularTeclado()">
-    <table>
-        <tr>
+    <table class="tabela-geral">
+        <tr id="tabela-resultado-area" class="tabela-linha">
             <td colspan="6"><input type="text" id="display" value="0" disabled></td>
         </tr>
-        <tr>
-            <td><input type="button" value="7" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="8" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="9" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="*" onclick="atualizarOperacao(this)" /></td>
+        <tr class="tabela-linha">
+            <td><input class="tabela-botao" type="button" value="7" onclick="atualizarDisplay(this)" /></td>
+            <td><input class="tabela-botao"   type="button" value="8" onclick="atualizarDisplay(this)" /></td>
+            <td><input class="tabela-botao"  type="button" value="9" onclick="atualizarDisplay(this)" /></td>
+            <td><input class="tabela-botao2"  type="button" value="*" onclick="atualizarOperacao(this)" /></td>
         </tr>
-        <tr>
-            <td><input type="button" value="4" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="5" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="6" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="-" onclick="atualizarOperacao(this)" /></td>
+        <tr class="tabela-linha">
+            <td><input class="tabela-botao"  type="button" value="4" onclick="atualizarDisplay(this)" /></td>
+            <td><input class="tabela-botao"  type="button" value="5" onclick="atualizarDisplay(this)" /></td>
+            <td><input class="tabela-botao"  type="button" value="6" onclick="atualizarDisplay(this)" /></td>
+            <td><input class="tabela-botao2"  type="button" value="-" onclick="atualizarOperacao(this)" /></td>
         </tr>
-        <tr>
-            <td><input type="button" value="1" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="2" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="3" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="+" onclick="atualizarOperacao(this)" /></td>
+        <tr class="tabela-linha">
+            <td><input class="tabela-botao"  type="button" value="1" onclick="atualizarDisplay(this)" /></td>
+            <td><input class="tabela-botao"  type="button" value="2" onclick="atualizarDisplay(this)" /></td>
+            <td><input class="tabela-botao"  type="button" value="3" onclick="atualizarDisplay(this)" /></td>
+            <td><input class="tabela-botao2"  type="button" value="+" onclick="atualizarOperacao(this)" /></td>
         </tr>
-        <tr>
-            <td><input type="button" value="C" onclick="limparDisplay()" /></td>
-            <td><input type="button" value="0" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="=" onclick="calcularOperacao()" /></td>
-            <td><input type="button" value="/" onclick="atualizarOperacao(this)" /></td>
+        <tr class="tabela-linha">
+            <td><input id="cleanButton" class="tabela-botao2"  type="button" value="C" onclick="limparDisplay()" /></td>
+            <td><input class="tabela-botao"  type="button" value="0" onclick="atualizarDisplay(this)" /></td>
+            <td><input id="resultButton" class="tabela-botao2"  type="button" value="=" onclick="calcularOperacao()" /></td>
+            <td><input class="tabela-botao2"  type="button" value="/" onclick="atualizarOperacao(this)" /></td>
         </tr>
     </table>
 
     <script src="js/calc_functions.js"></script>
-    <img src="img/dog.jpg" alt="Dog" />
 
 </body>
 
