@@ -30,3 +30,9 @@ function manipularTeclado(){
     if(/[0-9]/.test(event.key))
         atualizarDisplay({value: event.key});
 }
+
+function calcularRaiz() {
+    const number = document.getElementById("display");
+    const raiz = Math.sqrt(number.value);
+    number.value = raiz;
+}
