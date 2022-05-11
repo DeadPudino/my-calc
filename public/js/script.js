@@ -3,7 +3,21 @@ function insert(num) {
     var display = document.getElementById("display");
     var displayOculto = document.getElementById("displayOculto");
 
-    if (num == "^") {
+    if (num == "/" || num == "*" || num == "-" || num == "+" || num == "^") {
+
+        if (displayOculto.value[displayOculto.value.length-1] == "/" || displayOculto.value[displayOculto.value.length-1] == "/" || displayOculto.value[displayOculto.value.length-1] == "-" || displayOculto.value[displayOculto.value.length-1] == "+" || display.value[display.value.length-1] == "^") {
+
+            display.value = display.value;
+            displayOculto.value = displayOculto.value;
+
+        } else {
+
+            display.value += num;
+            displayOculto.value += num;
+
+        }
+            
+    } else if (num == "^") {
 
         display.value += "^";
         displayOculto.value += "**";
