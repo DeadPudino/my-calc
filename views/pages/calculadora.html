@@ -1,52 +1,58 @@
-<!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+<body>
+    <div id="calculadora">
 
-<body onkeypress="manipularTeclado()">
-    <h1>Calculadora Nikeldon</h1>
-    <table class="tabela-geral">
-        <tr id="tabela-resultado-area" class="tabela-linha">
-            <td colspan="6"><input type="text" id="display" value="0" disabled></td>
-        </tr>
-        <tr class="tabela-linha">
-            <td><input class="tabela-botao" type="button" value="(" onclick="atualizarDisplay(this)" /></td>
-            <td><input class="tabela-botao"   type="button" value=")" onclick="atualizarDisplay(this)" /></td>
-            <td><input class="tabela-botao"  type="button" value="√" onclick="calcularRaiz(this)" /></td>
-            <td><input class="tabela-botao2"  type="button" value="**" onclick="atualizarOperacao(this)" /></td>
-        </tr>
-        <tr class="tabela-linha">
-            <td><input class="tabela-botao" type="button" value="7" onclick="atualizarDisplay(this)" /></td>
-            <td><input class="tabela-botao"   type="button" value="8" onclick="atualizarDisplay(this)" /></td>
-            <td><input class="tabela-botao"  type="button" value="9" onclick="atualizarDisplay(this)" /></td>
-            <td><input class="tabela-botao2"  type="button" value="*" onclick="atualizarOperacao(this)" /></td>
-        </tr>
-        <tr class="tabela-linha">
-            <td><input class="tabela-botao"  type="button" value="4" onclick="atualizarDisplay(this)" /></td>
-            <td><input class="tabela-botao"  type="button" value="5" onclick="atualizarDisplay(this)" /></td>
-            <td><input class="tabela-botao"  type="button" value="6" onclick="atualizarDisplay(this)" /></td>
-            <td><input class="tabela-botao2"  type="button" value="-" onclick="atualizarOperacao(this)" /></td>
-        </tr>
-        <tr class="tabela-linha">
-            <td><input class="tabela-botao"  type="button" value="1" onclick="atualizarDisplay(this)" /></td>
-            <td><input class="tabela-botao"  type="button" value="2" onclick="atualizarDisplay(this)" /></td>
-            <td><input class="tabela-botao"  type="button" value="3" onclick="atualizarDisplay(this)" /></td>
-            <td><input class="tabela-botao2"  type="button" value="+" onclick="atualizarOperacao(this)" /></td>
-        </tr>
-        <tr class="tabela-linha">
-            <td><input id="cleanButton" class="tabela-botao2"  type="button" value="C" onclick="limparDisplay()" /></td>
-            <td><input class="tabela-botao"  type="button" value="0" onclick="atualizarDisplay(this)" /></td>
-            <td><input id="resultButton" class="tabela-botao2"  type="button" value="=" onclick="calcularOperacao()" /></td>
-            <td><input class="tabela-botao2"  type="button" value="/" onclick="atualizarOperacao(this)" /></td>
-        </tr>
-    </table>
+        <p id="marca">my calc</p>
+        
+        <input type="text" id="display" disabled>
+        <input type="text" id="displayOculto" disabled>
 
-    <script src="js/calc_functions.js"></script>
+        <button class="button botao1" onclick="insert('1')">1</button>
+        <button class="button botao2" onclick="insert('2')">2</button>
+        <button class="button botao3" onclick="insert('3')">3</button>
 
+        <button class="button botao4" onclick="insert('4')">4</button>
+        <button class="button botao5" onclick="insert('5')">5</button>
+        <button class="button botao6" onclick="insert('6')">6</button>
+
+        <button class="button botao7" onclick="insert('7')">7</button>
+        <button class="button botao8" onclick="insert('8')">8</button>
+        <button class="button botao9" onclick="insert('9')">9</button>
+
+        <button class="button botao0" onclick="insert('0')">0</button>
+
+        
+        <!-- botões de operações -->
+        <button class="button botaoDivi botaoAzul" onclick="insert('/')">/</button>
+        <button class="button botaoMult botaoAzul" onclick="insert('*')">*</button>
+        <button class="button botaoSub botaoAzul" onclick="insert('-')">-</button>
+        <button class="button botaoSoma botaoAzul" onclick="insert('+')">+</button>
+        <button class="button botaoExpo botaoAzul" onclick="insert('^')">^</button>
+        
+        <button class="button abreP botaoLaranja" onclick="insert('(')">(</button>
+        <button class="button fechaP botaoLaranja" onclick="insert(')')">)</button>
+        
+        <!-- <button class="button botaoRaiz" onclick="insert('√')">√</button> -->
+        <button class="button botaoRaiz botaoLaranja" onclick="raiz()"><img src="img/botaoRaiz.png"></button>
+
+        <button class="button botaoPonto" onclick="insert('.')">.</button>
+
+        <!-- botões de execução -->
+        <!-- <button class="button botaoSeta" id="deletaUm" onclick="deletaUm()">←</button> -->
+        <button class="button botaoSeta botaoLaranja" id="deletaUm" onclick="deletaUm()"><img src="img/botaoSeta.png"></button>
+        <button class="button botaoC" id="deletaTudo" onclick="deletaTudo()">C</button>
+        <button class="button botaoIgual" id="resultado" onclick="resultado()">=</button>
+    </div>
+
+
+
+    <script src="js/script.js"></script>
 </body>
-
 </html>
