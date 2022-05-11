@@ -1,38 +1,72 @@
-function atualizarDisplay(btn){
-    const display = document.getElementById('display');
-    if(display.value.length === 9) return;
-    if(display.value === '0') display.value = btn.value;
-    else display.value += btn.value;
+function insert(num) {
+    
+    var display = document.getElementById("display");
+    var displayOculto = document.getElementById("displayOculto");
+
+    if (num == "^") {
+
+        display.value += "^";
+        displayOculto.value += "**";
+        
+    // } else if (num == "√") {
+
+    //     display.value += "√";
+    //     displayOculto.value += "Math.sqrt(";
+        
+    } else {
+
+        display.value += num;
+        displayOculto.value += num;
+        
+    }
+
 }
 
-function limparDisplay(){
-    document.getElementById('display').value = '0';
+function resultado() {
+    var display = document.getElementById("displayOculto").value;
+    if (display) {
+        document.getElementById("display").value = eval(display);
+        document.getElementById("displayOculto").value = eval(display);
+    }
 }
 
-var operador = ''
-var valor1 = 0
-function atualizarOperacao(btn){
-    const display = document.getElementById('display');
-    operador = btn.value;
-    valor1 = parseInt(display.value);
-    display.value = '0';
+function deletaUm() {
+    var display = document.getElementById("display").value;
+    var displayOculto = document.getElementById("displayOculto").value;
+
+    if (displayOculto[displayOculto.length-2] == "*" && displayOculto[displayOculto.length-1] == "*") {
+
+        document.getElementById("displayOculto").value = displayOculto.slice(0, -2); // remove a potência do display oculto
+        document.getElementById("display").value = display.slice(0, -1); // remove o caractere "^" do display
+
+    // } else if (displayOculto[displayOculto.length-2] == "t" && displayOculto[displayOculto.length-1] == "(") {
+
+    //     document.getElementById("displayOculto").value = displayOculto.slice(0, -10); // aqui remove o texto "Math.sqrt(" do display oculto
+    //     document.getElementById("display").value = display.slice(0, -1); // aqui remove o caractere "√" do display
+
+    } else {
+        // remove o último caractere dos dois displays
+        document.getElementById("displayOculto").value = displayOculto.slice(0, -1);
+        document.getElementById("display").value = display.slice(0, -1);
+    }
 }
 
-function calcularOperacao(){
-    const display = document.getElementById('display');
-    const valor2 = parseInt(display.value);
-    valor1 = eval(valor1+operador+valor2);
-    display.value = valor1;
-    operador = '';
-}       
 
-function manipularTeclado(){
-    if(/[0-9]/.test(event.key))
-        atualizarDisplay({value: event.key});
+function deletaTudo() {
+    document.getElementById("display").value = "";
+    document.getElementById("displayOculto").value = "";
 }
 
-function calcularRaiz() {
-    const number = document.getElementById("display");
-    const raiz = Math.sqrt(number.value);
-    number.value = raiz;
+function raiz() {
+    var display = document.getElementById("display"); 
+    var displayOculto = document.getElementById("displayOculto");
+    var raiz = Math.sqrt(displayOculto.value);
+    display.value = raiz;
+    displayOculto.value = raiz;
+
 }
+
+// function raiz(formula) {
+//     document.getElementById("display").value = document.getElementById("display").value + formula;
+//     document.getElementById("displayOculto").value = document.getElementById("displayOculto").value + formula;
+// }
