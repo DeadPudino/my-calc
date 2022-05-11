@@ -1,14 +1,20 @@
+const operadorCheck = ["/", "*", "-", "+", "^"];
+
 function insert(num) {
     
-    var display = document.getElementById("display");
-    var displayOculto = document.getElementById("displayOculto");
+    let display = document.getElementById("display");
+    let displayOculto = document.getElementById("displayOculto");
 
-    if (num == "/" || num == "*" || num == "-" || num == "+" || num == "^") {
+    if (operadorCheck.includes(num)) {
 
-        if (displayOculto.value[displayOculto.value.length-1] == "/" || displayOculto.value[displayOculto.value.length-1] == "/" || displayOculto.value[displayOculto.value.length-1] == "-" || displayOculto.value[displayOculto.value.length-1] == "+" || display.value[display.value.length-1] == "^") {
+        if (operadorCheck.includes(display.value[display.value.length-1])) {
 
-            display.value = display.value;
-            displayOculto.value = displayOculto.value;
+            return false;
+
+        } else if (num == "^") {
+
+            display.value += "^";
+            displayOculto.value += "**";
 
         } else {
 
@@ -17,16 +23,6 @@ function insert(num) {
 
         }
             
-    } else if (num == "^") {
-
-        display.value += "^";
-        displayOculto.value += "**";
-        
-    // } else if (num == "√") {
-
-    //     display.value += "√";
-    //     displayOculto.value += "Math.sqrt(";
-        
     } else {
 
         display.value += num;
@@ -37,7 +33,7 @@ function insert(num) {
 }
 
 function resultado() {
-    var display = document.getElementById("displayOculto").value;
+    let display = document.getElementById("displayOculto").value;
     if (display) {
         document.getElementById("display").value = eval(display);
         document.getElementById("displayOculto").value = eval(display);
@@ -45,8 +41,8 @@ function resultado() {
 }
 
 function deletaUm() {
-    var display = document.getElementById("display").value;
-    var displayOculto = document.getElementById("displayOculto").value;
+    let display = document.getElementById("display").value;
+    let displayOculto = document.getElementById("displayOculto").value;
 
     if (displayOculto[displayOculto.length-2] == "*" && displayOculto[displayOculto.length-1] == "*") {
 
@@ -72,9 +68,9 @@ function deletaTudo() {
 }
 
 function raiz() {
-    var display = document.getElementById("display"); 
-    var displayOculto = document.getElementById("displayOculto");
-    var raiz = Math.sqrt(displayOculto.value);
+    let display = document.getElementById("display"); 
+    let displayOculto = document.getElementById("displayOculto");
+    let raiz = Math.sqrt(displayOculto.value);
     display.value = raiz;
     displayOculto.value = raiz;
 
